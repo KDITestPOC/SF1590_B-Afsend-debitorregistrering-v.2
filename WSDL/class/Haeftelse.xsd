@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Klassen beskriver hvornaar en given juridisk medhaefter haefter for en given delfordring.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="HaeftelseOprettetDato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato for hvornaar en haeftelse er oprettet.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="HaeftelseAfsluttetDato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato for hvornaar en haeftelse er Afsluttet.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

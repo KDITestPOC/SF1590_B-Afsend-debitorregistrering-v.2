@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Afslut Materialemodtager</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../class/DebitorLeverancedata.xsd"/>
+	<xs:include schemaLocation="../class/Debitorkonto.xsd"/>
+	<xs:include schemaLocation="../class/Materialemodtager.xsd"/>
+	<xs:element name="AfslutMaterialeModtager">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataDebitoransvarligMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeITSystem"/>
+				<xs:element ref="oir:DebitorLeverancedataTransaktionsID"/>
+				<xs:element ref="oir:DebitorLeverancedataRegistreringstidspunkt"/>
+				<xs:element name="ObjektIdentifikation">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="oir:DebitorkontoUnikIdentifikation"/>
+							<xs:element ref="oir:MaterialemodtagerPartID"/>
+							<xs:element ref="oir:MaterialemodtagerPartIDType"/>
+							<xs:element ref="oir:MaterialemodtagerFraDato"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="oir:MaterialemodtagerTilDato"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

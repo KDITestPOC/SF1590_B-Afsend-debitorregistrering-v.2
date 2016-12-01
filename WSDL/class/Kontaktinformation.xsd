@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Angiver kontaktinformation paa kontoret eller personen som skal modtage fakturaen hos debitor. Informationerne er en yderligere specificering af den part der skal modtage materiale omkring debitorkontoen. Men da to fordringer paa samme konto godt kan haandteres af to forskellige personer haeftes informationerne til Fordringen.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="KontaktinformationPersonNavn">
+		<xs:annotation>
+			<xs:documentation>Angiver navn paa kontaktpersonen hos fakturamodtager. Feltet medtages paa henholdsvis den elektroniske faktura, kreditnota og rykker.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="255"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="KontaktinformationPersonId">
+		<xs:annotation>
+			<xs:documentation>Angiver en identifikation af kontaktpersonen hos fakturamodtager. Feltet medtages paa henholdsvis den elektroniske faktura, kreditnota og rykker.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="255"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

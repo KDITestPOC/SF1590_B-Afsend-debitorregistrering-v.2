@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Her findes data, der er relevante for posteringer med udenlansk valuta. Hvis ingen valuta er angivet antages det at valutaen er DKK.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="ValutaValuta">
+		<xs:annotation>
+			<xs:documentation>Angiver valutaen i henhold til ISO-standard 4217</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:length value="3"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ValutaKurs">
+		<xs:annotation>
+			<xs:documentation>Feltet angiver den aktuelle valutakurs. Kursen er angives som hvor mange kroner 100 enheder af den paagaeldende valuta koster.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal"><xs:totalDigits value="8"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ValutaOmregningsdato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Feltet  angiver dato for valuta omregningen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

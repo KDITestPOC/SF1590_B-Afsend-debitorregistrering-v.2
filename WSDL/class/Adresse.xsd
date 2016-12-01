@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Adresse som den er defineret i OIOUBL. Adressen kan baade vaere international og dansk. Specifikation kan findes her: http://www.oioubl.info/documents/da/da/Guidelines/OIOUBL_GUIDE_ADRESSER.pdf</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../types/UUIDType.xsd"/>
+	<xs:element name="AdresseID">
+		<xs:annotation>
+			<xs:documentation>ID’t kan anvendes, hvis der findes et adresseregister der kan henvises til.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseRegisterID">
+		<xs:annotation>
+			<xs:documentation>I attributten identificeres det adresseregister der refereres til.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseTypeKode">
+		<xs:annotation>
+			<xs:documentation>Typen af adresse kan angives som hhv. Home eller Business jf. kodeliste. Til angivelse af AddressTypeCode anvendes kodelisten: ”urn:oioubl:codelist:addresstypecode-1.1”</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseFormatKode">
+		<xs:annotation>
+			<xs:documentation>AddressFormatCode er eneste obligatoriske felt i adresse klassen, og det er koden (jf. kodeliste) der afgor, hvilke af de ovrige felter der kan eller skal udfyldes. Til angivelse af FormatKode anvendes kodelisten: urn:oioubl:codelist:addressformatcode-1.1 (eller UN/ECE 3477)</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdressePostboks">
+		<xs:annotation>
+			<xs:documentation>Postboks angives kun med tal.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:integer"><xs:totalDigits value="10"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseEtage">
+		<xs:annotation>
+			<xs:documentation>Etagen angives som tekst, og der kan saaledes skrives ”.”, ”. sal” etc.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseRum">
+		<xs:annotation>
+			<xs:documentation>Navn eller nummer paa rum eller suite f.eks. ”Receptionen”, ”th.”, ”midtfor”</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseVejnavn">
+		<xs:annotation>
+			<xs:documentation>Er Postboks ikke angivet bor vejnavnet angives i de tilfaelde, hvor adresseformatet tillader det jf. senere afsnit.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="105"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseVejAdresseringsNavn">
+		<xs:annotation>
+			<xs:documentation>Yderligere vejnavn.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="70"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseLokalitet">
+		<xs:annotation>
+			<xs:documentation>Bygningens navn f.eks. gaardnavn, navn paa ejendom, bygning, bolig el.lign. der kan bruges som supplerende adresseoplysninger.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseHusnummer">
+		<xs:annotation>
+			<xs:documentation>Er Postboks ikke angivet bor husnummeret angives i de tilfaelde, hvor adresseformatet tillader det jf. senere afsnit. Husnummeret bor altid angives hvis Vejnavn er angivet.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseDueslag">
+		<xs:annotation>
+			<xs:documentation>Specifik intern location. Kan kun benyttes efter aftale.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseAfdeling">
+		<xs:annotation>
+			<xs:documentation>Adresserbar afdeling i en organisation f.eks. salgsafdelingen.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseAttention">
+		<xs:annotation>
+			<xs:documentation>Navn paa person eller afdeling.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseCO">
+		<xs:annotation>
+			<xs:documentation>Navn paa person eller afdeling.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseGrundIdentifikation">
+		<xs:annotation>
+			<xs:documentation>F.eks. matrikelnummer. Kan kun benyttes efter aftale.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseByDelsNavn">
+		<xs:annotation>
+			<xs:documentation>Navn paa bydel. Kan kun benyttes efter aftale.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="70"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseByNavn">
+		<xs:annotation>
+			<xs:documentation>Bynavnet bor angives, naar adresseformatet tillader det. Bynavnet bor altid angives, naar postnummeret er angivet</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="70"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseLandsdel">
+		<xs:annotation>
+			<xs:documentation>En landsdel f.eks. et amt eller en stat.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseLandsdelsKode">
+		<xs:annotation>
+			<xs:documentation>En landsdel, f.eks. et amt eller en stat, angivet som en kode f.eks. DK-025 for Roskilde Amt. Til angivelse af CountrySubentityCode anvendes kodelisten: ”ISO 3166-2”</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="5"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdressePostnummer">
+		<xs:annotation>
+			<xs:documentation>Postnummer bor altid angives, naar adresseformatet tillader det</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="17"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseRegion">
+		<xs:annotation>
+			<xs:documentation>En region er altid adresserbar f.eks. Vejle Amt</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseDistrikt">
+		<xs:annotation>
+			<xs:documentation>Et distrikt er et ikke adresserbart omraade f.eks. et skoledistrikt</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseLandekode">
+		<xs:annotation>
+			<xs:documentation>Landekoden skal angives i overensstemmelse med kodeliste ”ISO 3166-1”</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="2"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdresseLandNavn">
+		<xs:annotation>
+			<xs:documentation>Navn paa bydel. Kan kun benyttes efter aftale.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

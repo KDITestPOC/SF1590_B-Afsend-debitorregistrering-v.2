@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 sp1 (http://www.altova.com) by End User (free.org) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>DebitorkontoOpret</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../class/DebitorLeverancedata.xsd"/>
+	<xs:include schemaLocation="../class/Debitorkonto.xsd"/>
+	<xs:include schemaLocation="../class/DebitorSpecifikation.xsd"/>
+	<xs:include schemaLocation="../class/Materialemodtager.xsd"/>
+	<xs:include schemaLocation="../class/Materialeanvendelse.xsd"/>
+	<xs:include schemaLocation="../class/MaterialemodtagerAlernativAdresse.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskAnsvarlig.xsd"/>
+	<xs:include schemaLocation="../class/Ligestillingspartner.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskAnsvarligAlernativAdresse.xsd"/>
+	<xs:include schemaLocation="../class/Fordring.xsd"/>
+	<xs:include schemaLocation="../class/Kontaktinformation.xsd"/>
+	<xs:include schemaLocation="../class/FordringTekstLinje.xsd"/>
+	<xs:include schemaLocation="../class/Bilag.xsd"/>
+	<xs:include schemaLocation="../class/Opkraevningoplysninger.xsd"/>
+	<xs:include schemaLocation="../class/Delfordring.xsd"/>
+	<xs:include schemaLocation="../class/Valuta.xsd"/>
+	<xs:include schemaLocation="../class/DelfordringSpecifikation.xsd"/>
+	<xs:include schemaLocation="../class/Referencenogle.xsd"/>
+	<xs:include schemaLocation="../class/DelfordringTekstLinje.xsd"/>
+	<xs:include schemaLocation="../class/Posteringsoplysninger.xsd"/>
+	<xs:include schemaLocation="../class/DebitorFinansInfo.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskMedhaefter.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskMedhaefterAlernativAdresse.xsd"/>
+	<xs:include schemaLocation="../types/AdresseStruktur.xsd"/>
+	<xs:element name="Opret">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataDebitoransvarligMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeITSystem"/>
+				<xs:element ref="oir:DebitorLeverancedataTransaktionsID"/>
+				<xs:element ref="oir:DebitorLeverancedataRegistreringstidspunkt"/>
+				<xs:element ref="oir:DebitorLeverancedataAntalDebitorkonto"/>
+				<xs:element ref="oir:DebitorLeverancedataAntalFordring"/>
+				<xs:element ref="oir:DebitorLeverancedataAntalDelfordring"/>
+				<xs:element name="Debitorkonto" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="oir:DebitorkontoUnikIdentifikation"/>
+							<xs:element name="DebitorkontoFelter" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:DebitorkontoType"/>
+										<xs:element ref="oir:DebitorkontoOrganisatoriskReference"/>
+										<xs:element ref="oir:DebitorkontoOprettetAfITSystem"/>
+										<xs:element ref="oir:DebitorkontoDebitorkontoIdentifikation"/>
+										<xs:element ref="oir:DebitorkontoDebitorkontoIdentifikationType"/>
+										<xs:element ref="oir:DebitorkontoOprettetDatoTid"/>
+										<xs:element ref="oir:DebitorkontoFolsomhed"/>
+										<xs:element name="DebitorSpecifikation" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:DebitorSpecifikationVaerdi"/>
+													<xs:element ref="oir:DebitorSpecifikationTekst" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="JuridiskAnsvarlig">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:JuridiskAnsvarligPartID"/>
+													<xs:element ref="oir:JuridiskAnsvarligPartIDType"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="JuridiskAnsvarligAlternativAdresse" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:JuridiskAnsvarligAlternativAdresseFraDato"/>
+										<xs:element ref="oir:JuridiskAnsvarligAlternativAdresseTilDato" minOccurs="0"/>
+										<xs:element ref="oir:AdresseStruktur"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Materialemodtager" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:MaterialemodtagerPartID"/>
+										<xs:element ref="oir:MaterialemodtagerPartIDType"/>
+										<xs:element ref="oir:MaterialemodtagerProduktionsenhedNummer" minOccurs="0"/>
+										<xs:element ref="oir:MaterialemodtagerGLNNummer" minOccurs="0"/>
+										<xs:element ref="oir:MaterialemodtagerFraDato"/>
+										<xs:element ref="oir:MaterialemodtagerTilDato" minOccurs="0"/>
+										<xs:element name="Materialeanvendelse" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:MaterialeanvendelseType"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="MaterialemodtagerAlternativAdresse" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:MaterialemodtagerPartID"/>
+										<xs:element ref="oir:MaterialemodtagerPartIDType"/>
+										<xs:element name="MaterialemodtagerAlternativAdresseStruktur" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:MaterialemodtagerAlternativAdresseFraDato"/>
+													<xs:element ref="oir:MaterialemodtagerAlternativAdresseTilDato" minOccurs="0"/>
+													<xs:element ref="oir:AdresseStruktur"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="JuridiskMedhaefterAlternativAdresse" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:JuridiskMedhaefterPartID"/>
+										<xs:element ref="oir:JuridiskMedhaefterPartIDType"/>
+										<xs:element name="JuridiskMedhaefterAlternativAdresseStruktur" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:JuridiskMedhaefterAlternativAdresseFraDato"/>
+													<xs:element ref="oir:JuridiskMedhaefterAlternativAdresseTilDato" minOccurs="0"/>
+													<xs:element ref="oir:AdresseStruktur"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Ligestillingspartner" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:LigestillingspartnerNavn"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Fordring" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:FordringUnikIdentifikation"/>
+										<xs:element name="FordringFelter" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:FordringOprettetAfITSystem"/>
+													<xs:element ref="oir:FordringOprettetDatoTid"/>
+													<xs:element ref="oir:FordringForfaldsdato"/>
+													<xs:element ref="oir:FordringOpkraevningStatus"/>
+													<xs:element name="Kontaktinformation" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element ref="oir:KontaktinformationPersonNavn" minOccurs="0"/>
+																<xs:element ref="oir:KontaktinformationPersonId" minOccurs="1"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="FordringTekstLinje" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element ref="oir:FordringTekstLinjeIndex"/>
+																<xs:element ref="oir:FordringTekstLinjeTekst"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Bilag" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element ref="oir:BilagFil"/>
+																<xs:element ref="oir:BilagFilType"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Opkraevningsoplysninger" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element ref="oir:OpkraevningsoplysningerBetalingsMaadeKode"/>
+																<xs:element ref="oir:OpkraevningsoplysningerBetalingsIdentifikationID"/>
+																<xs:element ref="oir:OpkraevningsoplysningerKreditorKontonummer"/>
+																<xs:element ref="oir:OpkraevningsoplysningerSidsteRettidigBetalingsdato"/>
+																<xs:element ref="oir:OpkraevningsoplysningerFakturaNummer"/>
+																<xs:element ref="oir:OpkraevningsoplysningerOrdreNummer" minOccurs="0"/>
+																<xs:element ref="oir:OpkraevningsoplysningerFakturadato"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Delfordring" minOccurs="1" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:DelfordringUnikIdentifikation"/>
+													<xs:element name="DelfordringFelter" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element ref="oir:DelfordringType"/>
+																<xs:element ref="oir:DelfordringOprettetAfITSystem"/>
+																<xs:element ref="oir:DelfordringOprettetDatoTid"/>
+																<xs:element ref="oir:DelfordringAntal" minOccurs="0"/>
+																<xs:element ref="oir:DelfordringEnhed" minOccurs="0"/>
+																<xs:element ref="oir:DelfordringEnhedPris" minOccurs="0"/>
+																<xs:element ref="oir:DelfordringBelob"/>
+																<xs:element ref="oir:DelfordringStiftelsesdato" minOccurs="0"/>
+																<xs:element ref="oir:DelfordringPeriodeFra"/>
+																<xs:element ref="oir:DelfordringPeriodeTil"/>
+																<xs:element ref="oir:DelfordringFolsomhed"/>
+																<xs:element ref="oir:DelfordringKreditorkontoReference" minOccurs="0"/>
+																<xs:element name="ReferererTil" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element ref="oir:DelfordringUnikIdentifikation"/>
+																			<xs:element ref="oir:DelfordringKreditNotaKrav"/>
+																			<xs:element ref="oir:DelfordringAendringAarsagKode"/>
+																			<xs:element ref="oir:DelfordringAendringAarsagTekst"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Valuta" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element ref="oir:ValutaValuta"/>
+																			<xs:element ref="oir:ValutaKurs"/>
+																			<xs:element ref="oir:ValutaOmregningsdato"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="DelfordringSpecifikation" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element ref="oir:DelfordringSpecifikationVaerdi"/>
+																			<xs:element ref="oir:DelfordringSpecifikationTekst" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Referencenogle" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element ref="oir:ReferencenogleType"/>
+																			<xs:element ref="oir:ReferencenogleVaerdi"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="DelfordringTekstLinje" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element ref="oir:DelfordringTekstLinjeIndex"/>
+																			<xs:element ref="oir:DelfordringTekstLinjeTekst"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="DebitorFinansInfo" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element ref="oir:DebitorFinansInfoFinanskontonummer"/>
+																			<xs:element ref="oir:DebitorFinansInfoFinanskode"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Posteringsoplysninger" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element ref="oir:PosteringsoplysningerBogforingsdato" minOccurs="0"/>
+																			<xs:element ref="oir:PosteringsoplysningerBilagsdato" minOccurs="0"/>
+																			<xs:element ref="oir:PosteringsoplysningerValordato" minOccurs="0"/>
+																			<xs:element ref="oir:PosteringsoplysningerPosteringstekst" minOccurs="0"/>
+																			<xs:element ref="oir:PosteringsoplysningerFirmakode" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Haeftelse" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element ref="oir:JuridiskMedhaefterPartID"/>
+																<xs:element ref="oir:JuridiskMedhaefterPartIDType"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

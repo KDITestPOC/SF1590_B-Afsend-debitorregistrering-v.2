@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Forklarende tekst til fordringen. Vil oftest blive brugt som tekstlnjer paa en faktura. Det er nodvendigt med linjer i stedet for ét stort fritekst fordi fagsystemet skal kunne formatere teksten i tilfaelde af at de skal printes.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="FordringTekstLinjeIndex">
+		<xs:annotation>
+			<xs:documentation>Fortaeller tekstlinjens plads i forhold til andre tekstlinjer paa samme fordring.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:integer"><xs:totalDigits value="3"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FordringTekstLinjeTekst">
+		<xs:annotation>
+			<xs:documentation>Teksten som skal staa paa linjen. Feltet har ingen max laengde, men feltet benyttes bla. til fakturatekstlinjer som har en max laengde paa 60 karakterer, derfor bor man holde sig indenfor denne vaerdi.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="255"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

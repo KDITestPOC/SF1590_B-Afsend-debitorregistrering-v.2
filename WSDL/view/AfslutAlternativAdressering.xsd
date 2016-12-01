@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Afslut alternativ adressering</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../class/DebitorLeverancedata.xsd"/>
+	<xs:include schemaLocation="../class/Debitorkonto.xsd"/>
+	<xs:include schemaLocation="../class/Materialemodtager.xsd"/>
+	<xs:include schemaLocation="../class/MaterialemodtagerAlernativAdresse.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskAnsvarlig.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskAnsvarligAlernativAdresse.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskMedhaefter.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskMedhaefterAlernativAdresse.xsd"/>
+	<xs:element name="AfslutAlternativAdressering">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataDebitoransvarligMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeITSystem"/>
+				<xs:element ref="oir:DebitorLeverancedataTransaktionsID"/>
+				<xs:element ref="oir:DebitorLeverancedataRegistreringstidspunkt"/>
+				<xs:element name="ObjektIdentifikation">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="oir:DebitorkontoUnikIdentifikation"/>
+							<xs:element name="PartValg">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="JuridiskAnsvarlig">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:JuridiskAnsvarligPartID"/>
+													<xs:element ref="oir:JuridiskAnsvarligPartIDType"/>
+													<xs:element ref="oir:JuridiskAnsvarligAlternativAdresseFraDato"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="MaterialemodtagerAlternativAdresse">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:MaterialemodtagerPartID"/>
+													<xs:element ref="oir:MaterialemodtagerPartIDType"/>
+													<xs:element ref="oir:MaterialemodtagerAlternativAdresseFraDato"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="JuridiskMedhaefter">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:JuridiskMedhaefterPartID"/>
+													<xs:element ref="oir:JuridiskMedhaefterPartIDType"/>
+													<xs:element ref="oir:JuridiskMedhaefterAlternativAdresseFraDato"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="TilDatoValg">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element ref="oir:JuridiskAnsvarligAlternativAdresseTilDato"/>
+							<xs:element ref="oir:MaterialemodtagerAlternativAdresseTilDato"/>
+							<xs:element ref="oir:JuridiskMedhaefterAlternativAdresseTilDato"/>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

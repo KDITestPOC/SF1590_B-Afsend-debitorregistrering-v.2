@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>SogDebitorRegistrering_I</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../class/DebitorLeverancedata.xsd"/>
+	<xs:include schemaLocation="../class/Debitorkonto.xsd"/>
+	<xs:include schemaLocation="../class/Fordring.xsd"/>
+	<xs:include schemaLocation="../class/JuridiskAnsvarlig.xsd"/>
+	<xs:element name="SogDebitorRegistrering">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataDebitoransvarligMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeITSystem" minOccurs="0"/>
+				<xs:element ref="oir:DebitorLeverancedataTransaktionsID"/>
+				<xs:element ref="oir:DebitorLeverancedataRegistreringstidspunkt"/>
+				<xs:element name="DebitorRegistreringSog">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="oir:DebitorLeverancedataAfgivendeITSystem" minOccurs="0"/>
+							<xs:element ref="oir:DebitorkontoType" maxOccurs="unbounded"/>
+							<xs:element name="DebitorkontoPeriode" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DebitorkontoOprettetFra">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:DebitorkontoOprettetDatoTid"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="DebitorkontoOprettetTil">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:DebitorkontoOprettetDatoTid"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DebitorkontoIdentifikation" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:DebitorkontoDebitorkontoIdentifikation"/>
+										<xs:element ref="oir:DebitorkontoDebitorkontoIdentifikationType"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="JuridiskAnsvarlig" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:JuridiskAnsvarligPartID"/>
+										<xs:element ref="oir:JuridiskAnsvarligPartIDType"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

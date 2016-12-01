@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:include schemaLocation="../types/BelobType.xsd"/>
+	<xs:element name="RestanceBelob" type="oir:BelobType">
+		<xs:annotation>
+			<xs:documentation>Transient element til at holde den beregnede restance for en given konto, fordring eller delfordring. Restancen er det skyldige belob hvor forfaldsdato er overskredet</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RestanceDato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Transient element til at datoen for hvornaar en restance onskes angivet for.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="VirkningDatoFra" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Transient element til holde en virkningsdato for et andet element eller handling. Den praecise brug af feltet vil vaere defineret i den specifikke kontekst.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

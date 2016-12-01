@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Opsamler oplysninger som er faelles for en raekke delfordringer.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../types/UUIDType.xsd"/>
+	<xs:element name="FordringUnikIdentifikation" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Unik identifikation af fordringen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FordringOprettetAfITSystem" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Organisatorisk reference til det itsystem som har oprettet fordringen. Angivet som UUID i organisation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FordringOprettetDatoTid" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation>Dato og tidspunkt for oprettelsen af Fordringen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FordringForfaldsdato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato hvor fordringen forfalder.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FordringOpkraevningStatus">
+		<xs:annotation>
+			<xs:documentation>Status for opkraevning af fordringen paa debitorkontoen.
+Naar en fordring oprettes skal der vaelges en af tre opkraevningsstatusser. Opkraevningsstatussen bestemmer hvordan opkraevningsforlobet for fordringen vil foregaa. De tre vaerdier med deres funktion er beskrevet herunder:
+
+Opkraev:
+Hvis denne markering er sat vil debitorsystemet foretage opkraevning af fordringen. Vaerdien kan ikke aendres.
+Ingen Opkraevning:
+Debitorsystemet skal ikke foretage opkraevning. I de tilfaelde hvor fagsystemet selv foretager opkraevningen er det vigtigt at der medsendes opkraevningsoplysninger, saaledes at indbetalinger kan kan knyttes til de rigtige fordringer. Vaerdien kan ikke aendres.
+Afvent opkraevning:
+Naar denne vaerdi er angivet vil hverken debitorsystemet eller fagsystemet foretage en opkraevning. Markeringen kan senere aendres til "Opkraev" med et webservicekald. Benyttes f.eks. af KY. Naar en tilbagebetalingspligtig ydelse udbetales vil det tilbagebetalingspligtige belob blive oprettet som en fordring med markeringen "Afvent opkraevning". Naar ydelsen efter en periode ophorer, vil KY aendre opkraevningstatussen for de oprettede fordringer til "opkraev" saaledes at debitorsystemet kan opkraeve de de tilbagebetalingspligtige belob. Vaerdien aendres med et servicekald.
+</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Opkraev"/>
+				<xs:enumeration value="Ingen opkraevning"/>
+				<xs:enumeration value="Afvent opkraevning"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

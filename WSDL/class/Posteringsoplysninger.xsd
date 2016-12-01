@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>For korrekt at bogfore en delfordring kan der vaere tilfaelde hvor der skal bruges en raekke posteringsoplysninger, som ikke tilforer vaerdi til selve delfordringen, men udelukkende indeholder ekstra information om hvordan er delfordringen skal bogfores.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../types/UUIDType.xsd"/>
+	<xs:element name="PosteringsoplysningerBogforingsdato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Angiver datoen for hvornaar bogforingen af delfordringen skal have virkning i okonomisystemet.
+Som regnskabsaar benyttes aaret fra bogforingsdato.
+Normalt vil regnskabsaar vaere lig indevaerende aar, men ved overgangen til nyt aar, er der mulighed for i visse perioder, saakaldte forsupplements- og supplementperiode, at foretage posteringer til h.h.v kommende og forrige aar.
+Forsupplementsperiode: 1/12 - 31/12
+Supplementsperiode: 1/1 - 28/2
+I Forsupplementsperioden kan regnskabsaar vaere lig indevaerende eller kommende aar, i supplementsperioden lig indevaerende eller forrige aar, ellers lig indevaerende</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PosteringsoplysningerBilagsdato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Angiver bilagsdatoen, der skal benyttes i okonomisystemet for delfordringen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PosteringsoplysningerValordato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Bruges i forbindelse med posteringer til at praecisere, hvornaar en ydelse skal gaelde fra. Datoen kan vaere forskellig fra bogforingsdatoen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PosteringsoplysningerPosteringstekst">
+		<xs:annotation>
+			<xs:documentation>Angiver en beskrivelse af den paagaeldende linje til postering i okonomisystemet.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="255"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PosteringsoplysningerFirmakode" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Anvendes til at angive hvilket regnskab en postering tilhorer. Angives som UUID i Klassifiaktion.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

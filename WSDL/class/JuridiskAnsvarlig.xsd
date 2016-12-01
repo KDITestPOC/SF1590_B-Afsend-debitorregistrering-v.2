@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>JuridiskAnsvarlig er den person eller virksomhed som har det juridiske ansvar for betalingen af debitorforholdet. Vil oftest vaere den samme som Debitor. Et eksempel hvor den vil anderledes er ved ejendomskat hvor debitorkravet er tilknyttet ejendommen og ikke personen.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../types/UUIDType.xsd"/>
+	<xs:element name="JuridiskAnsvarligPartID" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Identifikation af parten. Identifikation af parten. Format bestemt af PartIDTypen i klassifikation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="JuridiskAnsvarligPartIDType" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Identificere typen af PartID. Angivet som UUID i Klassifikation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>I nogle tilfaelde opkraeves delfordringen samtidig med at den opstaar f.eks. ved p-afgifter. Klassen indeholder de felter der er nodvendige for at kunne identificere fremtidige indbetalinger og for at kunne rykke ved manglende indbetaling. Opkraevningen oprettes altid sammen med en fordring, den kan oprettes senere og knyttes til en eksisterende fordring.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="OpkraevningsoplysningerKreditorKontonummer">
+		<xs:annotation>
+			<xs:documentation>Kontonummer på en kreditorkonto. Kendt fra OIOUBL.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:totalDigits value="8"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OpkraevningsoplysningerBetalingsIdentifikationID">
+		<xs:annotation>
+			<xs:documentation>Identifikation for betaling. Ogsaa kaldet KortArtsKode. Som angivet i OIOUBL.  Angivet med nyeste version af urn:oioubl:id:paymentid.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="100"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OpkraevningsoplysningerBetalingsMaadeKode">
+		<xs:annotation>
+			<xs:documentation>Identifikation af betalingsmaade. Som angivet i OIOUBL. Angivet med nyeste version af urn:oioubl:codelist:paymentmeanscode. </xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="100"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OpkraevningsoplysningerSidsteRettidigBetalingsdato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Angiver sidste rettidige betalingsdato, der horer til en allerede udskrevet faktura. Bruges senere ved renteberegning, hvis der ikke modtages rettidig betaling.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OpkraevningsoplysningerFakturaNummer">
+		<xs:annotation>
+			<xs:documentation>Angiver et fakturanummer, der horer til en allerede udskrevet faktura. Bruges som henvisning til en faktura ved eksempelvis rykning.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OpkraevningsoplysningerOrdreNummer">
+		<xs:annotation>
+			<xs:documentation>Angiver et ordrenummer, der kan benyttes til som reference paa en faktura.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OpkraevningsoplysningerFakturadato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato fakturaen er oprettet.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

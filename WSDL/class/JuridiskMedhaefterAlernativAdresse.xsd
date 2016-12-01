@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Alternativ fysisk adresse hvor den juridiske medhaefter onsker at modtage materiale om debitorkontoen, hvis det er en anden adresse end den der kan findes i CPR/CVR. Kunne f.eks. vaere relevant i forbindelse med laengere ferier.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="JuridiskMedhaefterAlternativAdresseFraDato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato for hvornaar en JuridiskMedhaefterAlternativAdresse er gaeldende fra</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="JuridiskMedhaefterAlternativAdresseTilDato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato for hvornaar en JuridiskMedhaefterAlternativAdresse er gaeldende til</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

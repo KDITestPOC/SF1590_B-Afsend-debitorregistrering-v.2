@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>En materiale modtager er den part som paa vegne af den juridiske ansvarlige har ansvaret for betaling af debitorkontoen. Hvis den juridsiske ejer er en virksomhed kunne dette vaere f.eks vaere identifikation af okonomiafdelingen. For personer kunne det f.eks. vaere et advokatkontor hvis personen er sat under administration. Der kan paa ethvert givet tidspunkt kun vaere en Materialemodtager
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../types/UUIDType.xsd"/>
+	<xs:element name="MaterialemodtagerPartID" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Identifikation af parten. Format bestemt af PartIDTypen i klassifikation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MaterialemodtagerPartIDType" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Identificere typen af PartID. Angivet som UUID i Klassifikation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MaterialemodtagerProduktionsenhedNummer">
+		<xs:annotation>
+			<xs:documentation>Angiver nummeret for en virksomhed p-enhed. En P-enhed (produktionsenhed) er den adresse, som virksomheden drives fra. Fx en butik, filial, fabrik eller lignende. Anvendes til adressering. Angivet som URN som defineret af OIO</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="^urn:oio:pnr:[0-9]{10}$"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="MaterialemodtagerGLNNummer">
+		<xs:annotation>
+			<xs:documentation>GLN nummer (GLOBAL LOCATION NUMBER).
+En entydig identifikation af modtager enheden som kan tilknyttes en debitorkonto. Anvendes for at kunne sende faktura, kreditnota eller rykker elektronisk via OIOUBL snitfladen.
+Indeholder også EAN.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="^urn:oio:gln:[0-9]{13}$"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="MaterialemodtagerFraDato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato for hvornaar en materialemodtager er gaeldende fra.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MaterialemodtagerTilDato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato for hvornaar en materialemodtager er gaeldende til. Hvis feltet ikke er udfyldt vil der ingen ende vaere for perioden materialemodtageren har virkning. Dato for hvornaar en materialemodtager er gaeldende til. Hvis feltet ikke er udfyldt vil der ingen ende vaere for perioden materialemodtageren har virkning.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

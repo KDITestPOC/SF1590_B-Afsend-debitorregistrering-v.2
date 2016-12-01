@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Et debitorforhold beskriver et forhold hvor ejeren af forholdet (Kommunen/Losningen) har et krav mod en anden part (borger eller virksomhed). Kan f.eks. vaere tilbagebetaling af ydelser eller bodeforhold. Debitorkontoen oprettes af fagsystemet, og ejes herefter af debitorlosningen. Fagsystemet kan anmode om at faa lavet eventuelle aendringer. </xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../types/UUIDType.xsd"/>
+	<xs:element name="DebitorkontoUnikIdentifikation" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Unik identitifikation af debitorkontoen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DebitorkontoType" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Beskriver typen af debitorkontoen. Typen karakteriserer kontoen, samt er styrende for processeringen af debitorkontoen.
+Dette kunne for eksempel vaere at angive at Debitorkontoen er en Daginstitutionskonto. Angives som UUID i Klassifiaktion.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DebitorkontoOrganisatoriskReference" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Her angives hvilken organisatorisk enhed i kommunen fordringen tilhorer. Referencen er lokal for kommunen. Angives som UUID i Klassifiaktion.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DebitorkontoOprettetAfITSystem" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Den organisatoriske reference til IT fagsystemet hvor debitorkontoen har ophav. Angivet som UUID i organisation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DebitorkontoDebitorkontoIdentifikation" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Dette felt identificerer objektet eller personen som ligger til grund for debitorkontoen. Det kunne for eksemple vaere ejendomsnummeret, afgiftsnummeret fra en parkeringsafgift, cpr-nummer paa et barn osv. Angivet som URN</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DebitorkontoDebitorkontoIdentifikationType" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Fortaeller hvilken typen af Debitoridentifikation f.eks. CPR eller CVR. Angives som UUID i Klassifiaktion.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DebitorkontoOprettetDatoTid" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation>Dato for hvornaar bilaget er oprettet.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DebitorkontoBSMarkering" type="xs:boolean">
+		<xs:annotation>
+			<xs:documentation>Markering af hvorvidt denne konto er tilmeldt betalingsservice. Hvis True er kontoen tilmeldt.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DebitorkontoFolsomhed" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Indeholder Fagsystemets angivelse af folsomhed for debitorkontoen. Benyttes til dataafgraensning jf. Persondataloven. Angivet som UUID i Klassifikation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

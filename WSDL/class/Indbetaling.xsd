@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>En indbetaling knyttes til debitorforholdet, og benyttes til helt eller delvist at betale et eller flere krav.En indbetaling ejes af den indbetalende losning, som kan vaere debitorlosningen selv, den ansvarlig losning for debitorforholdet eller en helt tredje losning. Det er alene den indbetalende losning, som kan ajourfore en indbetaling.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../types/UUIDType.xsd"/>
+	<xs:element name="IndbetalingUnikIdentifikation" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>UnikIdentifikation for indbetalingen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="IndbetalingRegistreringsdato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Angiver den dato, hvor den enkelte transaktion er registreret.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="IndbetalingBetalingsdato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato (valordato/betalingsdato) for hvornaar indbetalingen er foretaget i fagsystemet.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="IndbetalingMyndighed">
+		<xs:annotation>
+			<xs:documentation>Fortaeller hvilken myndighed der har foretaget indbetalingen. Angivet som URN i Organisation.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="40"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IndbetalingOrganisatoriskReference" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Fortaeller hvilken organisatoriske enhed indbetalingen kommer fra. Angives som UUID i Klassifiaktion.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="IndbetalingOprettetAfITSystem" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Organisatorisk reference til det itsystem som har oprettet indbetalingen. Angivet som UUID i organisation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

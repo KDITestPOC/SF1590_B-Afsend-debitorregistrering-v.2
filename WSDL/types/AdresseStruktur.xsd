@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:include schemaLocation="../class/Adresse.xsd"/>
+	<xs:include schemaLocation="../class/Adresselinje.xsd"/>
+	<xs:element name="AdresseStruktur">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="oir:AdresseID" minOccurs="0"/>
+				<xs:element ref="oir:AdresseRegisterID" minOccurs="0"/>
+				<xs:element ref="oir:AdresseTypeKode" minOccurs="0"/>
+				<xs:element ref="oir:AdresseFormatKode"/>
+				<xs:element ref="oir:AdressePostboks" minOccurs="0"/>
+				<xs:element ref="oir:AdresseEtage" minOccurs="0"/>
+				<xs:element ref="oir:AdresseRum" minOccurs="0"/>
+				<xs:element ref="oir:AdresseVejnavn" minOccurs="0"/>
+				<xs:element ref="oir:AdresseVejAdresseringsNavn" minOccurs="0"/>
+				<xs:element ref="oir:AdresseLokalitet" minOccurs="0"/>
+				<xs:element ref="oir:AdresseHusnummer" minOccurs="0"/>
+				<xs:element ref="oir:AdresseDueslag" minOccurs="0"/>
+				<xs:element ref="oir:AdresseAfdeling" minOccurs="0"/>
+				<xs:element ref="oir:AdresseAttention" minOccurs="0"/>
+				<xs:element ref="oir:AdresseCO" minOccurs="0"/>
+				<xs:element ref="oir:AdresseGrundIdentifikation" minOccurs="0"/>
+				<xs:element ref="oir:AdresseByDelsNavn" minOccurs="0"/>
+				<xs:element ref="oir:AdresseByNavn" minOccurs="0"/>
+				<xs:element ref="oir:AdresseLandsdel" minOccurs="0"/>
+				<xs:element ref="oir:AdresseLandsdelsKode" minOccurs="0"/>
+				<xs:element ref="oir:AdressePostnummer" minOccurs="0"/>
+				<xs:element ref="oir:AdresseRegion" minOccurs="0"/>
+				<xs:element ref="oir:AdresseDistrikt" minOccurs="0"/>
+				<xs:element ref="oir:AdresseLandekode" minOccurs="0"/>
+				<xs:element ref="oir:AdresseLandNavn" minOccurs="0"/>
+				<xs:element name="AdresseLinje" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="oir:AdresselinjeTekst"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

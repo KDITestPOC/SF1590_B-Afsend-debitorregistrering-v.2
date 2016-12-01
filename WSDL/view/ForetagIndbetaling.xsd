@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Foretag indbetaling</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../class/DebitorLeverancedata.xsd"/>
+	<xs:include schemaLocation="../class/Debitorkonto.xsd"/>
+	<xs:include schemaLocation="../class/Indbetaling.xsd"/>
+	<xs:include schemaLocation="../class/Daekning.xsd"/>
+	<xs:include schemaLocation="../class/Delfordring.xsd"/>
+	<xs:include schemaLocation="../class/SekundaereDimensioner.xsd"/>
+	<xs:include schemaLocation="../class/Valuta.xsd"/>
+	<xs:element name="ForetagIndbetaling">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataDebitoransvarligMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeITSystem"/>
+				<xs:element ref="oir:DebitorLeverancedataTransaktionsID"/>
+				<xs:element ref="oir:DebitorLeverancedataRegistreringstidspunkt"/>
+				<xs:element name="ObjektIdentifikation">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="oir:DebitorkontoUnikIdentifikation"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Indbetaling">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="oir:IndbetalingUnikIdentifikation"/>
+							<xs:element ref="oir:IndbetalingRegistreringsdato"/>
+							<xs:element ref="oir:IndbetalingBetalingsdato"/>
+							<xs:element ref="oir:IndbetalingMyndighed"/>
+							<xs:element ref="oir:IndbetalingOrganisatoriskReference"/>
+							<xs:element ref="oir:IndbetalingOprettetAfITSystem"/>
+							<xs:element name="ErReguleringTil" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:IndbetalingUnikIdentifikation"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Konteringsdimensioner">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="SekundaereDimensioner" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:SekundaereDimensionerVaerdi"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Daekning" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:DaekningBelob"/>
+										<xs:element ref="oir:DelfordringUnikIdentifikation"/>
+										<xs:element name="Valuta" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:ValutaValuta"/>
+													<xs:element ref="oir:ValutaKurs"/>
+													<xs:element ref="oir:ValutaOmregningsdato"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

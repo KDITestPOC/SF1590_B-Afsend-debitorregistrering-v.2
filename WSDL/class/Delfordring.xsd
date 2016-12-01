@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>De forskellige krav paa en fordring er specificeret i delfordringer. Renter og afgifter vil blive tilskrevet som delfordringer. En delfordring kan relatere sig til andre delfordringer, det vil f.eks. vaere relevant i forhold til rente tilskrivelse hvor en renten skrives paa som en ny delfordring med relation til den delfordring eller delfordringer som renten er gaeldende for. Der kan kun relateres til delfordringer paa samme fordring.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../types/UUIDType.xsd"/>
+	<xs:include schemaLocation="../types/BelobType.xsd"/>
+	<xs:element name="DelfordringUnikIdentifikation" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Unik identifikation af Delfordringen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringType" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Bestemmer typen af delfordringen. For at kunne identificerer kravet, for eksempel at delfordringen er Grundskyld eller Rottebekaempelse, Daginstitutionsophold, Laanerente, mad osv. Angives som UUID i Klassifiaktion.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringOprettetAfITSystem" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Organisatorisk reference til det IT system som har oprettet delfordringen. Angivet som UUID i organisation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringOprettetDatoTid" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Dato og tidspunkt for oprettelsen af delfordringen</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringAntal">
+		<xs:annotation>
+			<xs:documentation>Angiver det antal enheder der onskes betalt for. Antallet er angivet i tusinddele – dvs. 1,000 skrives som 1000. Bruges i forbindelse med elektronisk opkraevning.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:integer"><xs:totalDigits value="18"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DelfordringEnhed" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Fortaeller enheden for "Antal". Kan f.eks. vaere liter, minutter eller kilometer. Angives som UUID i Klassifiaktion.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringEnhedPris" type="oir:BelobType">
+		<xs:annotation>
+			<xs:documentation>Prisen for en enkelt enhed.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringBelob" type="oir:BelobType">
+		<xs:annotation>
+			<xs:documentation>Angiver kravets belob</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringStiftelsesdato" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Angiver med en dato hvornaar kravet et stiftet.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringPeriodeFra" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Angiver fra hvilken dato kravets belob daekker over.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringPeriodeTil" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Angiver til hvilken dato kravets belob daekker over.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringKreditNotaKrav" type="xs:boolean">
+		<xs:annotation>
+			<xs:documentation>Feltet anvendes til at signalere at der paa baggrund af delfordringen skal sendes en kreditnota til debitor. Feltet vil vaere udfyldt for delfordringer som er rettelser til andre delfordringer.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringAendringAarsagKode" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Kode for aarsag til aendringen. Naar man oprette en delfordring som f.eks. er en nedskrivning til en anden fordring, skal man angive aarsagen til dette. Angives som UUID i Klassifiaktion.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringAendringAarsagTekst">
+		<xs:annotation>
+			<xs:documentation>Fritekstfelt til yderligere at beskrive en aendring.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="100"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DelfordringInddrivelseMarkering" type="xs:boolean">
+		<xs:annotation>
+			<xs:documentation>Markering af hvorvidt en delfordring er sendt til inddrivelse. Hvis True er delfordringen sendt til indrivelse.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringFolsomhed" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Indeholder Fagsystemets angivelse af folsomhed for delfordringen. Benyttes til dataafgraensning jf. Persondataloven. Angivet som UUID i Klassifikation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DelfordringKreditorkontoReference" type="oir:UUIDType">
+		<xs:annotation>
+			<xs:documentation>Saafremt delfordringen kan refereres til en kreditorpostering, angives kontoen for kreditorpostering her som reference. Angivelsen er ikke obligatorisk, dog skal alle debitorforhold, delfordringer, som er omfattet af lov om Ydelsesrefusion medtager denne reference. Angives som UUID i Klassifikation repraesenterende Indenrigsministeriets kontoplan for kommuner.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

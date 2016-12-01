@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by Eskild Nejsum (KOMBIT A/S) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>HentDebitorkonto_I</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../class/DebitorLeverancedata.xsd"/>
+	<xs:include schemaLocation="../class/Debitorkonto.xsd"/>
+	<xs:include schemaLocation="../class/Fordring.xsd"/>
+	<xs:include schemaLocation="../class/Delfordring.xsd"/>
+	<xs:element name="HentDebitorkonto">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataDebitoransvarligMyndighed"/>
+				<xs:element ref="oir:DebitorLeverancedataAfgivendeITSystem"/>
+				<xs:element ref="oir:DebitorLeverancedataTransaktionsID"/>
+				<xs:element ref="oir:DebitorLeverancedataRegistreringstidspunkt"/>
+				<xs:element name="ObjektIdentifikation">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="oir:DebitorkontoUnikIdentifikation"/>
+							<xs:element name="Fordring" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:FordringUnikIdentifikation"/>
+										<xs:element name="Delfordring" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:DelfordringUnikIdentifikation"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Filtreringsparametre" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="FordringForfaldsdatoPeriode" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="FordringForfaldsdatoPeriodeFra">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:FordringForfaldsdato"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="FordringForfaldsdatoPeriodeTil">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="oir:FordringForfaldsdato"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element ref="oir:FordringOpkraevningStatus" minOccurs="0"/>
+							<xs:element name="DelfordringPeriode" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="oir:DelfordringPeriodeFra"/>
+										<xs:element ref="oir:DelfordringPeriodeTil"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element ref="oir:DelfordringType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

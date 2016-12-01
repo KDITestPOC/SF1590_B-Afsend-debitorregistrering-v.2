@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oir="urn:oio:kl:kdi:oir:1590_B_V2" targetNamespace="urn:oio:kl:kdi:oir:1590_B_V2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>Informationer der angiver hvordan delfordringen eller den afledte faktura skal posteres hos debitor. Vil vaere givet af debitor ved afgivelse af ordren.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="DebitorFinansInfoFinanskontonummer">
+		<xs:annotation>
+			<xs:documentation>Angiver modtagers finanskontonummer som evt. er oplyst ifm. ordregivning. Anvendes ifm. OIOUBL</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DebitorFinansInfoFinanskode">
+		<xs:annotation>
+			<xs:documentation>Angiver modtagers finanskontokode som evt. er oplyst ifm. ordregivning. Anvendes ifm. OIOUBL</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"><xs:maxLength value="35"/></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>
